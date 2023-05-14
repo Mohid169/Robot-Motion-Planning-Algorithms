@@ -1,4 +1,4 @@
-function [distance, path]=Dijkstra(G, n_init, n_goal)
+function [ path]=Dijkstra(G, n_init, n_goal)
 [m t]=size(G);
 
 
@@ -25,7 +25,7 @@ while ismember(n_goal, U) %While the goal node is still in the set of unvisited 
     U(I)=[]; %Remove C from U
     
     
-    neighbors= find(G(C,:)>0 &(G(C,:)~=inf))
+    neighbors= find(G(C,:)>0 &(G(C,:)~=inf));
      %Obtain the neighbors from the adjaceny matrix
     for v=1:length(neighbors) %For all of the current nodes neighbors
         alt=dist(C)+G(C,neighbors(v)); %Compute the distance from initial node to the current node + the distance between the current node and this particular neighbor
