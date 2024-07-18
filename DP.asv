@@ -1,0 +1,18 @@
+T=20;
+N=30;
+DP=zeros(T+1,N);
+    
+for r=1:T
+    for c=1:N
+        if c=1
+            DP(r,c)=cost_matrix(r,c)+min(DP(r-1,c), DP(r-1,c+1));
+            DP_map(r,c)=find(a==min(DP(r-1,c), DP(r-1,c+1)));
+        elseif c=N
+            DP(r,c)=cost_matrix(r,c)+min(DP(r-1,c-1),DP(r-1,c))
+            DP_map(r,c)=
+        else
+            DP(r,c)=cost_matrix(r,c)+min(DP(r-1,c-1),DP(r-1,c),DP(r-1,c));
+         
+        end
+    end
+end
